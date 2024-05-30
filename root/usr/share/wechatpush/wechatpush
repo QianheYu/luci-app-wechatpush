@@ -1585,6 +1585,19 @@ function send(){
 
 	[ -z "$1" ] && send_title="路由状态："
 	[ ! -z "$1" ] && send_title="发送测试：" && send_content="${str_splitline}${str_title_start}内容1${str_title_end}${str_linefeed}${str_tab}设备1${str_linefeed}${str_tab}设备2${str_splitline}${str_title_start}内容2${str_title_end}${str_linefeed}${str_tab}设备3${str_linefeed}${str_tab}设备4"
+	if [[ -z "$1" && ! -z ACTION && ! -z "$INTERFACE" ]]; then
+		send_title="外网接口状态: "
+		# if [ "$ACTION" = "ifup" ]; then
+		# 	send_content="${str_splitline}${str_title_start}端口${DEVICE}状态：${str_title_end}${str_linefeed}${str_tab}外网接口${INTERFACE}已连接"
+		# elif [ "$ACTION" = "ifdown" ]; then
+		# 	send_content="${str_splitline}${str_title_start}端口${DEVICE}状态：${str_title_end}${str_linefeed}${str_tab}外网接口${INTERFACE}已断开"
+		# fi
+		if [ "$ACTION" = "connected" ]; then
+			send_content="${str_title_start}端口${DEVICE}状态：${str_title_end}${str_linefeed}${str_tab}外网接口${INTERFACE}已上线"
+		elif [ "$ACTION" = "disconnected" ]; then
+			send_content="${str_title_start}端口${DEVICE}状态：${str_title_end}${str_linefeed}${str_tab}外网接口${INTERFACE}已离线"
+		fi
+	fi
 
 	wait_and_cat
 	if [ -z "$1" ] && [ -n "$systeminfo_enable" ]; then
