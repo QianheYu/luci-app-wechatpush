@@ -35,6 +35,7 @@ v2.06.2 之后的版本不再支持 LuCI 18.06，如需编译，请使用 openwr
 - [x] 路由运行状态定时推送
 - [x] 路由 Web、SSH 登录提示，自动拉黑、端口敲门
 - [x] 无人值守任务
+- [x] mwan3 多wan口状态通知 - 在mwan3的通知脚本中添加 `/usr/share/wechatpush/wechatpush send` 
 
 
 ## 说明
@@ -88,10 +89,3 @@ v2.06.2 之后的版本不再支持 LuCI 18.06，如需编译，请使用 openwr
 | :-------- | :----- |
 | openwrt-19.07.0 ... latest | [![Lastest Release](https://img.shields.io/github/release/tty228/luci-app-wechatpush.svg?style=flat)](https://github.com/tty228/luci-app-wechatpush/releases)
 | openwrt-18.06 | [![Release v2.06.2](https://img.shields.io/badge/release-v2.06.2-lightgrey.svg)](https://github.com/tty228/luci-app-wechatpush/releases/tag/v2.06.2)
-
-
-## 捐赠
-
-如果你觉得此项目对你有帮助，请捐助我们，使项目能持续发展和更加完善。
-
-![image](https://github.com/tty228/Python-100-Days/blob/master/res/WX.jpg)
